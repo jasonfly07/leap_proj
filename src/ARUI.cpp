@@ -128,50 +128,7 @@ void ARUI::update(){
 		webcamSurface = mCapture->getSurface();
 		webcamMat = toOcv( webcamSurface );
 		locateMarker(webcamMat);
-	}
-
-	//	int T = 25;
-	//	int nRows = webcamMat.rows;
-	//	int nCols = webcamMat.cols;
-	//	allPts.clear();
-	//	for(int i = 50; i < nRows-50; i++){
-	//		for(int j = 50; j < nCols-50; j++){
-	//			cv::Point3_<uchar>* pt1 = webcamMat.ptr<cv::Point3_<uchar>>(i-10,j);
-	//			cv::Point3_<uchar>* pt2 = webcamMat.ptr<cv::Point3_<uchar>>(i+5,j-5);
-	//			cv::Point3_<uchar>* pt3 = webcamMat.ptr<cv::Point3_<uchar>>(i+5,j+5);
-	//			if((int)pt1->z > (int)pt2->z + T){
-	//				if((int)pt1->z > (int)pt3->z + T){
-	//					if((int)pt2->x > (int)pt1->x + T){
-	//						if((int)pt2->x > (int)pt3->x + T){
-	//							if((int)pt3->y > (int)pt1->y + T){
-	//								if((int)pt3->y > (int)pt2->y + T){
-	//									allPts.push_back(cv::Point(j,i));
-	//								}
-	//							}
-	//						}
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
-
-	//c_x = -1000; c_y = -1000;
-	//xAvg = -1; yAvg = -1;
-	//if(allPts.size()!=0){
-	//	int xSum = 0;
-	//	int ySum = 0;
-	//	for(int i=0; i<allPts.size(); i++){
-	//		xSum += allPts[i].x;
-	//		ySum += allPts[i].y;
-	//	}
-	//	xAvg = xSum/allPts.size();
-	//	yAvg = ySum/allPts.size();
-
-	//	cout << xAvg << "," << yAvg << endl;
-	//}
-
-	
+	}	
 
 	InteractionBox iBox = leap.frame().interactionBox();
 	const GestureList gestures = leap.frame().gestures();
@@ -242,8 +199,6 @@ void ARUI::draw(){
         }
        
         gl::drawSolidCircle(Vec2f(x,y), 10);
-		//gl::color( Color::black() );
-		//mTextureFont->drawString( toString((int)x)+","+toString((int)y), Vec2f( x, y) );
     }
 }
 
